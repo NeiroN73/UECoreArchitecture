@@ -26,28 +26,17 @@ public class VeilOfFaithEditor : ModuleRules
 				"EditorStyle",
 				"MessageLog",
 				"EditorWidgets",
-
-				// Accessing the menu
 				"WorkspaceMenuStructure",
-
-				// Details/Property editor
 				"DetailCustomizations",
 				"PropertyEditor",
-
-				// Used for the Blueprint Nodes
 				"BlueprintGraph",
 				"Kismet",
 				"KismetCompiler",
 				"KismetWidgets",
-
-				// graph stuff
 				"GraphEditor",
 				"ContentBrowser",
-
-				// e.g. FPlatformApplicationMisc::ClipboardCopy
 				"ApplicationCore",
 				"EditorFramework",
-				
 				"VeilOfFaith"
 			});
 

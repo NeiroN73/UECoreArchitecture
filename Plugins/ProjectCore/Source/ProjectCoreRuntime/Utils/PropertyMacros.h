@@ -50,15 +50,3 @@ On##Name##Changed.Execute(Name); \
 } \
 public: \
 FOn##Name##Changed On##Name##Changed;
-
-
-#define PROPERTY(Type, Name, Getter, Setter) \
-private: \
-UPROPERTY() \
-Type Name; \
-Getter \
-UFUNCTION() \
-Type Get##Name() const { return Name; } \
-Setter \
-UFUNCTION() \
-void Set##Name(Type NewValue) { Name = NewValue; }

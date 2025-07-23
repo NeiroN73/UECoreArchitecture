@@ -17,11 +17,6 @@ void UPreloadsService::Inject(TObjectPtr<UInstallerContainer> Container)
 	ScreensService = Container->Resolve<UScreensService>();
 }
 
-void UPreloadsService::Initialize()
-{
-	//HistoryService->OnHistoryProgressed.BindUObject(this, &UPreloadsService::StartPreload);
-}
-
 void UPreloadsService::StartPreload(TSet<FName> InPreloadIds, FOnPreloadCompleted Callback)
 {
 	ScreensService->Open<ULoadingScreen>();
@@ -70,7 +65,7 @@ void UPreloadsService::CompletePreload(const FOnPreloadCompleted& Callback)
 	Callback.Execute();
 }
 
-void UPreloadsService::Release()
+void UPreloadsService::ReleasePreloadAssets()
 {
 	for (auto Id : HistoryPreloadIds)
 	{

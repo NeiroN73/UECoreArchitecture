@@ -9,9 +9,9 @@ AActorHandler::AActorHandler()
 	PrimaryActorTick.bCanEverTick = false;
 }
 
-void AActorHandler::BuildFragments(UFragmentsFactory* NewModuleFactory)
+void AActorHandler::BuildFragments(UFragmentsFactory* InFragmentsFactory)
 {
-	ModuleFactory = NewModuleFactory;
+	InitializeFragmentable(InFragmentsFactory);
 }
 
 FName AActorHandler::GetId()

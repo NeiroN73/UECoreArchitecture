@@ -17,8 +17,6 @@ class PROJECTCOREEDITOR_API UHistoryGraph : public UEdGraph
 	GENERATED_BODY()
 
 public:
-	UHistoryGraph();
-
 	UBaseHistoryElement* GetElement() const;
 	const UHistoryGraphSchema* GetDialogueGraphSchema() const;
 	void UpdateElementData();

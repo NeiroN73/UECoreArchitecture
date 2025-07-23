@@ -10,7 +10,6 @@
 class UPreloadsService;
 class UHistorySaveState;
 class UHistoryConfig;
-class UDialoguesService;
 
 DECLARE_DELEGATE(FOnHistoryProgressed)
 
@@ -32,8 +31,6 @@ private:
 
 	UPROPERTY()
 	TObjectPtr<UInstallerContainer> Container;
-	UPROPERTY()
-	TObjectPtr<UDialoguesService> DialoguesService;
 	UPROPERTY()
 	TObjectPtr<UHistoryConfig> HistoryConfig;
 	UPROPERTY()

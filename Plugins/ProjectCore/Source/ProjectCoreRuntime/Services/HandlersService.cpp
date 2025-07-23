@@ -3,8 +3,8 @@
 
 #include "HandlersService.h"
 
-#include "ProjectCoreRuntime/Characters/Base/CharacterHandler.h"
 #include "ProjectCoreRuntime/Factories/HandlersFactory.h"
+#include "ProjectCoreRuntime/Handlers/CharacterHandler.h"
 #include "ProjectCoreRuntime/Handlers/Base/ActorHandler.h"
 #include "ProjectCoreRuntime/Installer/InstallerContainer.h"
 

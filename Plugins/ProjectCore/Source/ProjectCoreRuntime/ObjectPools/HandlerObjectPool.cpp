@@ -5,7 +5,7 @@
 
 #include "ProjectCoreRuntime/Installer/InstallerContainer.h"
 
-void UHandlerObjectPool::Return(AObjectPoolHandler* Handler)
+void UHandlerObjectPool::Return(APoolableHandler* Handler)
 {
 	if (Handler)
 	{

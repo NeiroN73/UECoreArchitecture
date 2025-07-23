@@ -3,9 +3,12 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Base/SystemsState.h"
+#include "Base/InstallerState.h"
 #include "UObject/Object.h"
 #include "BeginWorldSystemsState.generated.h"
+
+class IWorldable;
+class UInstallerContainer;
 
 UCLASS()
 class PROJECTCORERUNTIME_API UBeginWorldSystemsState : public UInstallerState

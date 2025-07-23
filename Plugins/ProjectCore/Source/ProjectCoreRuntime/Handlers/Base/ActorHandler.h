@@ -18,18 +18,13 @@ public IFragmentable
 	GENERATED_BODY()
 	FRAGMENTABLE_BODY()
 
-private:
-	UPROPERTY()
-	TObjectPtr<UFragmentsFactory> ModuleFactory;
-	
 public:
+	UPROPERTY(EditAnywhere)
+	FCustomId Id;
+	
 	AActorHandler();
-	virtual void BuildFragments(UFragmentsFactory* NewModuleFactory) override;
+	virtual void BuildFragments(UFragmentsFactory* InFragmentsFactory) override;
 
 private:
 	virtual FName GetId() override;
-
-public:
-	UPROPERTY(EditAnywhere, Category="Id")
-	FCustomId Id;
 };

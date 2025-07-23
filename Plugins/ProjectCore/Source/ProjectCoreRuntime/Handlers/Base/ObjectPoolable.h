@@ -6,7 +6,6 @@
 #include "UObject/Interface.h"
 #include "ObjectPoolable.generated.h"
 
-// This class does not need to be modified.
 UINTERFACE()
 class UObjectPoolable : public UInterface
 {

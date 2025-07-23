@@ -25,7 +25,7 @@ void UBaseFactory::WorldChanged(UWorld* NewWorld)
 void UBaseFactory::CastInterfaces(UObject* Object)
 {
 	CastInjectable(Object);
-	CastModulable(Object);
+	CastFragmentable(Object);
 	CastInitializable(Object);
 	CastTickable(Object);
 }
@@ -54,7 +54,7 @@ void UBaseFactory::CastTickable(UObject* Object)
 	}
 }
 
-void UBaseFactory::CastModulable(UObject* Object)
+void UBaseFactory::CastFragmentable(UObject* Object)
 {
 	if (auto Fragmentable = Cast<IFragmentable>(Object))
 	{

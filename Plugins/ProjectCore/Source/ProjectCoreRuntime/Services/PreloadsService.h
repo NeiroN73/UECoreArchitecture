@@ -21,24 +21,16 @@ DECLARE_DELEGATE(FOnPreloadCompleted)
 
 UCLASS()
 class PROJECTCORERUNTIME_API UPreloadsService : public UService,
-public IInjectable,
-public IInitializable
+public IInjectable
 {
 	GENERATED_BODY()
 
 public:
 	virtual void Inject(TObjectPtr<UInstallerContainer> Container) override;
-	virtual void Initialize() override;
 
 	void StartPreload(TSet<FName> InPreloadIds, FOnPreloadCompleted Callback);
 	void CompletePreload(const FOnPreloadCompleted& Callback);
-	void Release();
-
-	template<class TObject = UObject>
-	TObject* GetLoadedAsset(FName Id)
-	{
-		return AssetsService->GetLoadedAsset<TObject>(Id);
-	}
+	void ReleasePreloadAssets();
 
 private:
 	UPROPERTY()

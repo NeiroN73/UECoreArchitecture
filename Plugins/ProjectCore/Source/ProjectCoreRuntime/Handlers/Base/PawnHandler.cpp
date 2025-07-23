@@ -9,14 +9,9 @@ APawnHandler::APawnHandler()
 	PrimaryActorTick.bCanEverTick = false;
 }
 
-void APawnHandler::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
-{
-	Super::SetupPlayerInputComponent(PlayerInputComponent);
-}
-
 void APawnHandler::BuildFragments(UFragmentsFactory* NewModuleFactory)
 {
-	ModuleFactory = NewModuleFactory;
+	InitializeFragmentable(NewModuleFactory);
 }
 
 FName APawnHandler::GetId()

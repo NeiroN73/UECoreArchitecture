@@ -10,7 +10,4 @@ USTRUCT()
 struct PROJECTCORERUNTIME_API FTableData : public FTableRowBase
 {
 	GENERATED_BODY()
-
-	UPROPERTY(EditAnywhere)
-	FCustomId Id;
 };

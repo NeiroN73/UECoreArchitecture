@@ -3,7 +3,7 @@
 
 #include "HandlersFactory.h"
 
-#include "ProjectCoreRuntime/Characters/Base/CharacterHandler.h"
+#include "ProjectCoreRuntime/Handlers/CharacterHandler.h"
 #include "ProjectCoreRuntime/Handlers/Base/ActorHandler.h"
 #include "ProjectCoreRuntime/Installer/InstallerContainer.h"
 #include "ProjectCoreRuntime/TableConfigs/CharactersTableData.h"

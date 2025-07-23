@@ -3,7 +3,6 @@
 
 #include "HistoryService.h"
 
-#include "DialoguesService.h"
 #include "PreloadsService.h"
 #include "ProjectCoreRuntime/Configs/HistoryConfig.h"
 #include "ProjectCoreRuntime/History/Actions/Base/HistoryAction.h"
@@ -17,7 +16,6 @@ void UHistoryService::Inject(TObjectPtr<UInstallerContainer> InContainer)
 	Container = InContainer;
 
 	HistorySaveState = InContainer->Resolve<UHistorySaveState>();
-	DialoguesService = InContainer->Resolve<UDialoguesService>();
 	HistoryConfig = InContainer->Resolve<UHistoryConfig>();
 	PreloadsService = InContainer->Resolve<UPreloadsService>();
 }

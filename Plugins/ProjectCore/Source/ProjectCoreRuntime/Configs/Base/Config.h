@@ -17,5 +17,5 @@ public:
 	UPROPERTY()
 	TObjectPtr<UWorld> World;
 	
-	virtual void WorldChanged(UWorld* NewWorld) override;
+	virtual void WorldChanged(UWorld* InWorld) override;
 };

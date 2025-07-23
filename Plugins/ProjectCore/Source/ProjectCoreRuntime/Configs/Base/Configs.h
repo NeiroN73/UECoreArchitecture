@@ -14,8 +14,8 @@ class PROJECTCORERUNTIME_API UConfigs : public UPrimaryDataAsset
 
 public:
 	UPROPERTY(EditAnywhere)
-	TArray<UConfig*> Configs;
+	TArray<TObjectPtr<UConfig>> Configs;
 
 	UPROPERTY(EditAnywhere)
-	TArray<UDataTable*> TableConfigs;
+	TArray<TObjectPtr<UDataTable>> TableConfigs;
 };

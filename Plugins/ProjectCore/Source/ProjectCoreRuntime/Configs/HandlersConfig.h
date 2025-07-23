@@ -9,26 +9,11 @@
 #include "HandlersConfig.generated.h"
 
 UCLASS()
-class PROJECTCORERUNTIME_API UHandlersConfig : public UConfig,
-public IInitializable
+class PROJECTCORERUNTIME_API UHandlersConfig : public UConfig
 {
 	GENERATED_BODY()
 	
 public:
-	virtual void Initialize() override;
-
-	TMap<FCustomId, TSubclassOf<AActor>> HandlersById;
-
-	TSubclassOf<AActor> GetHandlerClass(FName Id)
-	{
-		if (auto Founded = HandlersById.Find(Id))
-		{
-			return *Founded;
-		}
-		return nullptr;
-	}
-
-private:
 	UPROPERTY(EditAnywhere)
-	TArray<TSubclassOf<AActor>> Handlers;
+	TMap<FCustomId, TSubclassOf<AActor>> HandlersById;
 };

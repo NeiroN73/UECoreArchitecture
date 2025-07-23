@@ -27,14 +27,17 @@ public:
 	virtual void WorldChanged(UWorld* NewWorld) override;
 
 protected:
-	TObjectPtr<UInstallerContainer> InstallerContainer;
-	TObjectPtr<UTickService> TickService;
-	TObjectPtr<UFragmentsFactory> FragmentsFactory;
-
 	void CastInterfaces(UObject* Object);
-
 	void CastInjectable(UObject* Object);
 	void CastInitializable(UObject* Object);
 	void CastTickable(UObject* Object);
-	void CastModulable(UObject* Object);
+	void CastFragmentable(UObject* Object);
+
+private:
+	UPROPERTY()
+	TObjectPtr<UInstallerContainer> InstallerContainer;
+	UPROPERTY()
+	TObjectPtr<UTickService> TickService;
+	UPROPERTY()
+	TObjectPtr<UFragmentsFactory> FragmentsFactory;
 };

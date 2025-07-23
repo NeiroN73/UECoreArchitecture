@@ -3,20 +3,21 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "HandlersFactory.h"
+#include "Base/BaseObjectPool.h"
+#include "ProjectCoreRuntime/Factories/HandlersFactory.h"
 #include "UObject/Object.h"
-#include "ProjectCoreRuntime/Handlers/Base/ObjectPoolHandler.h"
+#include "ProjectCoreRuntime/Handlers/Base/PoolableHandler.h"
 #include "ProjectCoreRuntime/Installer/Injectable.h"
 #include "HandlerObjectPool.generated.h"
 
 UCLASS()
-class PROJECTCORERUNTIME_API UHandlerObjectPool : public UObject,
+class PROJECTCORERUNTIME_API UHandlerObjectPool : public UBaseObjectPool,
 public IInjectable
 {
 	GENERATED_BODY()
 
 public:
-	template<typename THandler = AObjectPoolHandler>
+	template<typename THandler = APoolableHandler>
 	void Create(AActor* PoolsContainer, int32 Size)
 	{
 		FActorSpawnParameters SpawnParams;
@@ -33,7 +34,7 @@ public:
 		}
 	}
 
-	template<typename THandler = AObjectPoolHandler>
+	template<typename THandler = APoolableHandler>
 	TObjectPtr<THandler> Get()
 	{
 		for (auto Handler : Pool)
@@ -51,13 +52,13 @@ public:
 		return NewHandler;
 	}
 
-	void Return(AObjectPoolHandler* Handler);
+	void Return(APoolableHandler* Handler);
 	void Release();
 	virtual void Inject(TObjectPtr<UInstallerContainer> Container) override;
 
 private:
 	UPROPERTY()
-	TArray<TObjectPtr<AObjectPoolHandler>> Pool;
+	TArray<TObjectPtr<APoolableHandler>> Pool;
 
 	UPROPERTY()
 	TObjectPtr<UHandlersFactory> HandlerFactory;
@@ -66,5 +67,5 @@ private:
 	TObjectPtr<AActor> PoolContainer;
 
 	UPROPERTY()
-	TSubclassOf<AObjectPoolHandler> Class;
+	TSubclassOf<APoolableHandler> Class;
 };

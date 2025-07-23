@@ -7,8 +7,6 @@
 #include "UObject/Interface.h"
 #include "PreloadConfig.generated.h"
 
-class UPreloadsService;
-
 UINTERFACE()
 class UPreloadConfig : public UInterface
 {

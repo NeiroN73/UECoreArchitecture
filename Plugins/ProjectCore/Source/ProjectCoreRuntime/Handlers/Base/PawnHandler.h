@@ -20,17 +20,12 @@ public IFragmentable
 	GENERATED_BODY()
 	FRAGMENTABLE_BODY()
 
-private:
-	UPROPERTY()
-	TObjectPtr<UFragmentsFactory> ModuleFactory;
-
 public:
 	UPROPERTY(EditAnywhere, Category="Id")
 	FCustomId Id;
 
 	APawnHandler();
 
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	virtual void BuildFragments(UFragmentsFactory* NewModuleFactory) override;
 	virtual FName GetId() override;
 };

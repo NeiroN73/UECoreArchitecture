@@ -3,7 +3,6 @@
 
 #include "HistoryGraph.h"
 
-#include "EditorAccess.h"
 #include "HistoryGraphSchema.h"
 #include "HistoryUtils.h"
 #include "GraphNodes/HistoryGraphNode.h"
@@ -12,13 +11,6 @@
 #include "ProjectCoreRuntime/History/Elements/ReturnHistoryElement.h"
 #include "ProjectCoreRuntime/History/Elements/Base/BaseHistoryElement.h"
 
-UHistoryGraph::UHistoryGraph()
-{
-	// if (!UBaseHistoryElement::EditorAccess.IsValid())
-	// {
-	// 	UBaseHistoryElement::EditorAccess = TSharedPtr<IEditorAccessable>(NewObject<UEditorAccess>());
-	// }
-}
 
 UBaseHistoryElement* UHistoryGraph::GetElement() const
 {

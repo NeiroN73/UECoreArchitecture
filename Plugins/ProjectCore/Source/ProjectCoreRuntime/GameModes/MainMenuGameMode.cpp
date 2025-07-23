@@ -5,7 +5,6 @@
 
 #include "ProjectCoreRuntime/Installer/InstallerGameSubsystem.h"
 #include "ProjectCoreRuntime/Installer/StateMachine/InstallerStateMachine.h"
-#include "ProjectCoreRuntime/Installer/StateMachine/States/InitializeMainMenuState.h"
 #include "ProjectCoreRuntime/Installer/StateMachine/States/BeginWorldSystemsState.h"
 #include "ProjectCoreRuntime/Installer/StateMachine/States/TickSystemsState.h"
 
@@ -17,7 +16,6 @@ void AMainMenuGameMode::BeginPlay()
 	
 	StateMachine->Initialize({
 		NewObject<UBeginWorldSystemsState>(World),
-		NewObject<UInitializeMainMenuState>(World),
 
 		NewObject<UTickSystemsState>(World)
 	});

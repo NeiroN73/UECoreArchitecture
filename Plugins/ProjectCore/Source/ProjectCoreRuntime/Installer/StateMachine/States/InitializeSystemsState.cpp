@@ -14,9 +14,7 @@
 #include "ProjectCoreRuntime/Factories/ScreensFactory.h"
 #include "ProjectCoreRuntime/Factories/ViewsFactory.h"
 #include "ProjectCoreRuntime/Services/AssetsLoader.h"
-#include "ProjectCoreRuntime/Services/DialoguesService.h"
 #include "ProjectCoreRuntime/Services/HistoryService.h"
-#include "ProjectCoreRuntime/Services/InvestigationService.h"
 #include "ProjectCoreRuntime/Services/LevelsService.h"
 #include "ProjectCoreRuntime/Services/TickService.h"
 #include "ProjectCoreRuntime/Services/SavingService.h"
@@ -27,7 +25,6 @@
 void UInitializeSystemsState::Enter()
 {
 	StateMachine->InstallerContainer = NewObject<UInstallerContainer>();
-	
 	Register(StateMachine);
 	
 	RegisterConfigs();
@@ -83,8 +80,6 @@ void UInitializeSystemsState::RegisterServices()
 	Register<UScreensService>();
 	Register<ULevelsService>();
 	Register<UTickService>();
-	Register<UInvestigationService>();
-	Register<UDialoguesService>();
 	Register<UHandlersService>();
 	Register<UHistoryService>();
 	Register<UPreloadsService>();
@@ -95,26 +90,25 @@ void UInitializeSystemsState::InitializeSystems()
 	Container = StateMachine->InstallerContainer;
 	
 	Injectables = Container->ResolveAllImplements<IInjectable>();
-	Initializables = Container->ResolveAllImplements<IInitializable>();
-	Tickables = Container->ResolveAllImplements<ITickable>();
-	Fragmentables = Container->ResolveAllImplements<IFragmentable>();
-
 	for (auto Injectable : Injectables)
 	{
 		Injectable->Inject(Container);
 	}
 
-	auto ModuleFactory = Container->Resolve<UFragmentsFactory>();
-	for (auto Modulable : Fragmentables)
+	Fragmentables = Container->ResolveAllImplements<IFragmentable>();
+	auto FragmentsFactory = Container->Resolve<UFragmentsFactory>();
+	for (auto Fragmentable : Fragmentables)
 	{
-		Modulable->BuildFragments(ModuleFactory);
+		Fragmentable->BuildFragments(FragmentsFactory);
 	}
-	
+
+	Initializables = Container->ResolveAllImplements<IInitializable>();
 	for (auto Initializable : Initializables)
 	{
 		Initializable->Initialize();
 	}
 
+	Tickables = Container->ResolveAllImplements<ITickable>();
 	auto TickService = Container->Resolve<UTickService>();
 	for (auto Tickable : Tickables)
 	{

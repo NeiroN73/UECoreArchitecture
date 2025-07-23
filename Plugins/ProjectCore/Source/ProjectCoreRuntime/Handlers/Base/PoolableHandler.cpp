@@ -1,25 +1,25 @@
 // Copyright Floruit, Inc. All Rights Reserved.
 
 
-#include "ObjectPoolHandler.h"
+#include "PoolableHandler.h"
 
 
-AObjectPoolHandler::AObjectPoolHandler()
+APoolableHandler::APoolableHandler()
 {
 	PrimaryActorTick.bCanEverTick = false;
 }
 
-void AObjectPoolHandler::Get()
+void APoolableHandler::Get()
 {
 	IObjectPoolable::Get();
 }
 
-void AObjectPoolHandler::Return()
+void APoolableHandler::Return()
 {
 	IObjectPoolable::Return();
 }
 
-void AObjectPoolHandler::Release()
+void APoolableHandler::Release()
 {
 	IObjectPoolable::Release();
 }

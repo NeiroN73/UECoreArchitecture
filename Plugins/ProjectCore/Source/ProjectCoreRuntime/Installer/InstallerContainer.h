@@ -14,10 +14,10 @@ class PROJECTCORERUNTIME_API UInstallerContainer : public UObject
 
 private:
 	UPROPERTY()
-	TMap<UClass*, UObject*> Registrations;
+	TMap<TObjectPtr<UClass>, TObjectPtr<UObject>> Registrations;
 
 	UPROPERTY()
-	TMap<FName, UDataTable*> DataTableRegistrations;
+	TMap<FName, TObjectPtr<UDataTable>> DataTableRegistrations;
 	
 public:
 	void Register(UObject* Object);

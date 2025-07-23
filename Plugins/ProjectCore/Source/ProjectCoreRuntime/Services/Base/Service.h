@@ -16,14 +16,6 @@ public IWorldable
 {
 	GENERATED_BODY()
 
-protected:
-	template<typename TSaveState = USaveState>
-	TSaveState* CreateSaveState()
-	{
-		USaveState* State = NewObject<TSaveState>();
-		return Cast<TSaveState>(State);
-	}
-
 public:
 	virtual void WorldChanged(UWorld* NewWorld) override;
 

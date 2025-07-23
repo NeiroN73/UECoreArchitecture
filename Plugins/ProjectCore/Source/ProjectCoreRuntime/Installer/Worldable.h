@@ -17,5 +17,5 @@ class PROJECTCORERUNTIME_API IWorldable
 	GENERATED_BODY()
 
 public:
-	virtual void WorldChanged(UWorld* NewWorld) = 0;
+	virtual void WorldChanged(UWorld* InWorld) = 0;
 };
